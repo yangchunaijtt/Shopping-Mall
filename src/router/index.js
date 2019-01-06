@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Goodlist from "../views/goodlist.vue"
-import Title from "@/views/title.vue"
-import Image from "@/views/Images.vue"
+import Goodlist from "../views/goodlist"
+import Title from "@/views/title"
+import Image from "@/views/Images"
+import Car from "../views/car"
 
 Vue.use(Router)
 
@@ -27,6 +28,10 @@ export default new Router({
           component:Image
         }
       ]
+    },{
+      path:"/car",
+      name:"car",
+      component:Car
     }
   ]
 })
