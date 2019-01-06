@@ -6,6 +6,9 @@
                <span>
                  {{$route.query.time}}
                 </span>
+                <span>
+                      {{$route.params.carId}}
+                </span>
           </div>
           
     </div>

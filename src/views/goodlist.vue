@@ -28,6 +28,10 @@
             <button @click="jump4">4跳转到购物车页面</button>
             <button @click="jump5">后退几步</button>
         </div>
+        <div>
+            <!-- params路由的参数 -->
+            <router-link :to="{name:'car',params:{carId:123}}">命名路由跳转</router-link>
+        </div>
         
     </div>
 </template>

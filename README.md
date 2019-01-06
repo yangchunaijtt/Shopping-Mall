@@ -147,4 +147,46 @@
     }
   ]
 ```
+
 ### 5:命名路由和命名视图
+-  给路由定义不同的名字，根据名字来匹配
+- 命名路由
+```
+     <span>
+                      {{$route.params.carId}}
+                </span>
+```
+```
+    <div>
+            <!-- params路由的参数 -->
+            <router-link :to="{name:'car',params:{carId:123}}">命名路由跳转</router-link>
+        </div>
+```
+```
+    {
+      path:"/car/:carId",
+      name:"car",
+      component:Car
+    }
+```
+- 命名视图
+```
+/* 页面默认路由  命名视图 */
+    {
+      path:"/",
+      name:"Goodlist",
+      components:{
+        default:Goodlist,
+        title:Title,
+        image:Image,
+      }
+```
+```
+    <div id="app">
+    <router-view/>
+    <router-view name="title"></router-view>
+    <router-view name="image"></router-view>
+  </div>
+```
+
+## 介绍 vue-resource

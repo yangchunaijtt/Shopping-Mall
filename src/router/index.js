@@ -10,7 +10,17 @@ Vue.use(Router)
 
 export default new Router({
   mode:"history", /* 指定路由方式  有hash和 history */
-  routes: [
+  routes: [ 
+    /* 页面默认路由  命名视图 */
+    {
+      path:"/",
+      name:"Goodlist",
+      components:{
+        default:Goodlist,
+        title:Title,
+        image:Image,
+      }
+    },
     {
       path: '/goods', /* 动态路由方式 */
       name: 'Goodlist',
@@ -29,7 +39,7 @@ export default new Router({
         }
       ]
     },{
-      path:"/car",
+      path:"/car/:carId",
       name:"car",
       component:Car
     }
