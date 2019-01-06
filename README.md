@@ -4,7 +4,7 @@
 ##   1.6号第一天
 初始化项目
 
-##   课程：route
+##   介绍：route
 ###     1：前端路由
 ###     2:动态路由
  ```export default new Router({

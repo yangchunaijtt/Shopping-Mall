@@ -1,12 +1,12 @@
 <template>
     <div>
-          这是商品标题组件
+        这是商品标题组件
     </div>
 </template>
 <script>
-export default {
-    
-}
+    export default {
+        
+    }
 </script>
 <style>
 
