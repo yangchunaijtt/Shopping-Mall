@@ -39,7 +39,7 @@ export default new Router({
         }
       ]
     },{
-      path:"/car/:carId",
+      path:"/car",
       name:"car",
       component:Car
     }

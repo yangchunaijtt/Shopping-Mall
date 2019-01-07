@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./node_modules/vue/dist/vue.js"></script>
+    <script src="./node_modules/vue-resource/dist/vue-resource.js"></script>
+    <script src="./node_modules/axios/dist/axios.js"></script>
+
+</head>
+<body>
+    <div id="app">
+        <h1>vue-resource讲解</h1>
+        <a href="javascript:;" @click = "get">get请求</a>
+        <a href="javascript:;" v-on:click="post">post请求</a>
+        <a href="javascript:;">jsonp请求</a>
+    </div>
+    <div>
+            <a href="javascript:;" @click = "axiosget">get请求</a>
+            <a href="javascript:;" v-on:click="axioshttp">post请求</a>
+    </div>
+    <div>
+        {{msg}}
+    </div>
+    <script>
+        new vue ({
+            el:"#app",
+            data:{
+                msg:""
+            },
+            mounted:function(){
+                Vue.http.interceptors.push(function(request,next){
+
+                    /* 请求完之后的函数 */
+                    next(function(res){
+                        return res;
+                    })
+                })
+            },
+            http:{
+                /* 存储公共请求前面的字段的 */
+                root:"",
+            },
+            /* axios的全部拦截器 */
+            mounted:function(){
+                /* 拦截发出的请求 */
+                axios.interceptors.request.use(function(config){
+
+                })
+                /* 拦截接受到的请求 */
+                axios.interceptors.response.use(function(config){
+
+                })
+            },
+            methods:{
+                get:function(){
+                    this.$http.get("package.json",{
+                        params:{
+                            userId:"101"
+                        },
+                        headers:{
+                            tocken:"abcd"
+                        }.then(res => {  
+                            this.msg = res.data ;
+                        },error => {
+                            this.msg = error.data;
+                        })
+                    });
+                },
+                post:function(){
+                    Vue.$http.post("package.json",{
+                        params:{
+                            userId:"101"
+                        },
+                        headers:{
+                            tocken:"abcd"
+                        }.then(res => {  
+                            this.msg = res.data ;
+                        },error => {
+                            this.msg = error.data;
+                        })
+                    });
+                },
+                http:function(){
+                    Vue.$http({
+
+                    })
+                },
+                axiosget(){
+                    axios.get("./package.json",{
+                        params:{
+
+                        },
+                        headers:{
+
+                        },
+                    }).then(res => {
+                        this.msg = res.data;
+                    }).catch(function(error){
+                        console.log(error);
+                    })
+                },
+                axiospost(){
+                    axios.post("./package.json",{
+                        userid:"1211"
+                    },{
+                        headers:{
+
+                        }
+                    }).then(res => {
+                        this.msg = res.data; 
+                    }).catch(function(error){
+
+                    })
+                },
+                axioshttp(){
+                    axios({
+                        url:"",
+                        method:"get",
+                        data:{
+                            userId:'101'
+                            /* post提交的地方  */
+                        },
+                        params:{
+                            /* get提交的地方 */
+                        },
+                        headers:{
+
+                        }
+                    }).then(res => {
+
+                    }).catch(function(error){
+
+                    })
+                },
+
+            }
+        })
+    </script>
+</body>
+</html>

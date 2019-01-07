@@ -189,4 +189,20 @@
   </div>
 ```
 
-## 介绍 vue-resource
+## 介绍 vue-resource  原本官方推荐的
+- 介绍
+    vue-ressource
+- 请求API 按照 rest 风格设计的，它提供了七种请求API
+ 1. get (url,[options])
+    : 从服务器拿数据
+ 2. head(url,[options])
+    
+ 3. delete (url,[options])
+ 4. jsonp (url,[options])
+ 5. post(body,[options])
+    : 向服务器发数据 
+ 6. put (body,[options])
+ 7. patch  (body,[options])
+- 全局拦截器  interceptors
+##   介绍 axios     后面官方推荐的
+-   
